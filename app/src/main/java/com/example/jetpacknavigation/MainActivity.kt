@@ -38,12 +38,12 @@ fun MyApp(modifier: Modifier) {
         startDestination = "firstScreen"
     ){
         composable( route = "firstScreen" ){
-            FirstScreen(modifier){
-                navController.navigate("secondScreen")
+            FirstScreen(modifier){name->
+                navController.navigate("secondScreen/$name")
             }
         }
-        composable( route = "secondScreen" ){
-            SecondScreen{
+        composable( route = "secondScreen/{name}" ){
+            SecondScreen(name = it.arguments?.getString("name")?:" no name" ){
                 navController.navigate("firstScreen")
             }
         }

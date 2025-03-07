@@ -18,7 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun FirstScreen( modifier: Modifier,navigateToSecondScreen:() -> Unit ){
+fun FirstScreen( modifier: Modifier ,navigateToSecondScreen:(String) -> Unit ){
     var name by remember { mutableStateOf("") }
     Column (
         modifier = Modifier.padding(16.dp).fillMaxSize(),
@@ -33,7 +33,7 @@ fun FirstScreen( modifier: Modifier,navigateToSecondScreen:() -> Unit ){
         )
         Spacer(modifier = Modifier.padding(8.dp))
         Button(
-            onClick = { navigateToSecondScreen() },
+            onClick = { navigateToSecondScreen(name) },
             modifier = Modifier.padding(8.dp)
         ) { Text(text="Done") }
         Spacer(modifier = Modifier.padding(16.dp))
